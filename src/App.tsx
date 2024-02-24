@@ -1,11 +1,9 @@
-// import './App.css';
+import Router from './Router';
 
 function App() {
   return (
     <div className="App">
-      <div className="font-pretendard text-3xl font-bold underline">
-        it goes Work!!
-      </div>
+      <Router />
     </div>
   );
 }
