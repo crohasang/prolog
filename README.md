@@ -1,3 +1,17 @@
+# PROLOG
+CRUD 게시판 구현 프로젝트 
+
+<br><br><br><br>
+
+# 🖱️ 개발 환경
+- **IDE : visual studio code**
+- **JavaScript**
+- **TypeScript**
+- **React**
+- **Tailwind CSS**
+
+<br><br><br><br>
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
