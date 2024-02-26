@@ -2,8 +2,13 @@ import { ReactComponent as MagnifyingGlassIcon } from '../../assets/icons/magnif
 
 const SearchBar = () => {
   return (
-    <div>
-      <MagnifyingGlassIcon />
+    <div className="flex items-center justify-center bg-gray-200 rounded-full p-2 w-full">
+      <MagnifyingGlassIcon width={16} height={16} />
+      <input
+        className="ml-2 bg-transparent outline-none placeholder-gray-500 flex-grow"
+        type="text"
+        placeholder="검색어를 입력하세요"
+      />
     </div>
   );
 };

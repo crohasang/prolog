@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import IntroHeader from '../components/organisms/IntroHeader';
 import IntroTitle from '../components/atoms/IntroTitle';
 
@@ -5,6 +6,11 @@ import IntroBackgroundVideo from '../assets/videos/introBackGroundVideo3.mp4';
 import KakaoLoginBtn from '../components/atoms/KakaoLoginBtn';
 
 const Intro = () => {
+  // 처음 Intro가 켜질 때 다크모드로
+  useEffect(() => {
+    document.documentElement.classList.add('dark');
+  }, []);
+
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <video

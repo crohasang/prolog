@@ -4,7 +4,7 @@ const Logo = () => {
   const navigate = useNavigate();
   return (
     <button
-      className="font-pretendard bg-transparent text-white font-bold focus:outline-none text-sm"
+      className="font-pretendard bg-transparent text-black dark:text-white font-bold focus:outline-none text-sm"
       onClick={() => navigate('/')}
     >
       PROlog
