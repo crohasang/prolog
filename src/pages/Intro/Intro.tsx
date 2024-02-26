@@ -3,6 +3,7 @@ import Header from '../../components/organisms/Header';
 import IntroTitle from '../../components/atoms/IntroTitle';
 
 import IntroBackgroundVideo from '../../assets/videos/introBackGroundVideo3.mp4';
+import KakaoLoginBtn from '../../components/atoms/KakaoLoginBtn';
 
 const Intro = () => {
   return (
@@ -25,8 +26,9 @@ const Intro = () => {
         <source src={IntroBackgroundVideo} type="video/mp4" />
       </video>
       <Header />
-      <div className="mt-[-20%]">
+      <div className="flex flex-col justify-center items-center space-y-20">
         <IntroTitle />
+        <KakaoLoginBtn />
       </div>
     </div>
   );
