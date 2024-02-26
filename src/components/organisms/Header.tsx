@@ -20,7 +20,6 @@ const Header = () => {
       </div>
       <div className="space-x-4 mr-5">
         <HeaderBtn title="둘러보기" onClick={() => navigate('/board')} />
-        <HeaderBtn title="로그인" onClick={() => navigate('/login')} />
       </div>
     </header>
   );
