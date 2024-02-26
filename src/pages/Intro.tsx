@@ -5,10 +5,16 @@ import IntroTitle from '../components/atoms/IntroTitle';
 import IntroBackgroundVideo from '../assets/videos/introBackGroundVideo3.mp4';
 import KakaoLoginBtn from '../components/atoms/KakaoLoginBtn';
 
+import useStore from '../store/useStore';
+
 const Intro = () => {
+  const toggleDarkMode = useStore((state) => state.toggleDarkMode);
+
   // 처음 Intro가 켜질 때 다크모드로
   useEffect(() => {
-    document.documentElement.classList.add('dark');
+    if (!useStore.getState().darkMode) {
+      toggleDarkMode();
+    }
   }, []);
 
   return (
