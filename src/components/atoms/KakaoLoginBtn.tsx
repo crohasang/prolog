@@ -1,4 +1,3 @@
-import React from 'react';
 import { useFadeIn } from '../../hooks/useFadeIn';
 import loginBtnImage from '../../assets/icons/kakao_login_medium_wide.png';
 
