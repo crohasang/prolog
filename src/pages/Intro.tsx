@@ -1,8 +1,8 @@
-import IntroHeader from '../../components/organisms/IntroHeader';
-import IntroTitle from '../../components/atoms/IntroTitle';
+import IntroHeader from '../components/organisms/IntroHeader';
+import IntroTitle from '../components/atoms/IntroTitle';
 
-import IntroBackgroundVideo from '../../assets/videos/introBackGroundVideo3.mp4';
-import KakaoLoginBtn from '../../components/atoms/KakaoLoginBtn';
+import IntroBackgroundVideo from '../assets/videos/introBackGroundVideo3.mp4';
+import KakaoLoginBtn from '../components/atoms/KakaoLoginBtn';
 
 const Intro = () => {
   return (

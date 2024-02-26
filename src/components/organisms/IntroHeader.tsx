@@ -17,7 +17,7 @@ const IntroHeader = () => {
       <div className="mr-5">
         <Logo />
       </div>
-      <div className="space-x-4 mr-5">
+      <div className="">
         <HeaderBtn title="둘러보기" onClick={() => navigate('/board')} />
       </div>
     </header>
