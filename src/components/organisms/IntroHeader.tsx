@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Logo from '../atoms/Logo';
@@ -6,7 +5,7 @@ import HeaderBtn from '../atoms/HeaderBtn';
 
 import { useFadeIn } from '../../hooks/useFadeIn';
 
-const Header = () => {
+const IntroHeader = () => {
   const navigate = useNavigate();
   const opacity = useFadeIn(0, 1, 1000);
 
@@ -25,4 +24,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default IntroHeader;

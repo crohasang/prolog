@@ -1,5 +1,4 @@
-import React from 'react';
-import Header from '../../components/organisms/Header';
+import IntroHeader from '../../components/organisms/IntroHeader';
 import IntroTitle from '../../components/atoms/IntroTitle';
 
 import IntroBackgroundVideo from '../../assets/videos/introBackGroundVideo3.mp4';
@@ -25,7 +24,7 @@ const Intro = () => {
       >
         <source src={IntroBackgroundVideo} type="video/mp4" />
       </video>
-      <Header />
+      <IntroHeader />
       <div className="flex flex-col justify-center items-center space-y-20">
         <IntroTitle />
         <KakaoLoginBtn />
