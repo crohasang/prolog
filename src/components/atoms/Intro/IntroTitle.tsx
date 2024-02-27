@@ -1,4 +1,4 @@
-import { useFadeIn } from '../../hooks/useFadeIn';
+import { useFadeIn } from '../../../hooks/useFadeIn';
 
 const IntroTitle = () => {
   const opacity = useFadeIn(0, 1, 1000);
