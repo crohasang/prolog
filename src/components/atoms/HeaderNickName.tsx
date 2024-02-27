@@ -2,17 +2,17 @@ import React from 'react';
 
 interface Props {
   title: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const HeaderNickName: React.FC<Props> = ({ title, onClick }) => {
   return (
-    <button
+    <div
       className="font-pretendard bg-transparent text-black dark:text-white text-base pb-1 "
       onClick={onClick}
     >
       {title}
-    </button>
+    </div>
   );
 };
 

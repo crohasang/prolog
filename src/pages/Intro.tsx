@@ -1,22 +1,10 @@
-import { useEffect } from 'react';
 import IntroHeader from '../components/organisms/IntroHeader';
-import IntroTitle from '../components/atoms/IntroTitle';
+import IntroTitle from '../components/atoms/Intro/IntroTitle';
 
 import IntroBackgroundVideo from '../assets/videos/introBackGroundVideo3.mp4';
 import KakaoLoginBtn from '../components/atoms/KakaoLoginBtn';
 
-import useStore from '../store/useStore';
-
 const Intro = () => {
-  const toggleDarkMode = useStore((state) => state.toggleDarkMode);
-
-  // 처음 Intro가 켜질 때 다크모드로
-  useEffect(() => {
-    if (!useStore.getState().darkMode) {
-      toggleDarkMode();
-    }
-  }, []);
-
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <video
