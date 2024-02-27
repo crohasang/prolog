@@ -9,7 +9,7 @@ interface Props {
   likes: number;
 }
 
-const Card: React.FC<Props> = ({
+const BoardCard: React.FC<Props> = ({
   title,
   body,
   time,
@@ -18,7 +18,7 @@ const Card: React.FC<Props> = ({
   likes,
 }) => {
   return (
-    <div className="font-pretendard w-80 h-96 bg-white shadow-md overflow-hidden p-4 flex flex-col justify-between">
+    <div className="font-pretendard w-80 h-96 bg-white shadow-md overflow-hidden p-4 flex flex-col justify-between transform transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-105">
       <div>
         <h2 className="font-bold text-xl line-clamp-1">{title}</h2>
         <p className="text-sm line-clamp-3">{body}</p>
@@ -36,4 +36,4 @@ const Card: React.FC<Props> = ({
   );
 };
 
-export default Card;
+export default BoardCard;
