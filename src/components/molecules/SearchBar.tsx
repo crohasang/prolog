@@ -7,7 +7,6 @@ const SearchBar = () => {
       <input
         className="ml-2 bg-transparent outline-none placeholder-gray-500 flex-grow"
         type="text"
-        placeholder="검색어를 입력하세요"
       />
     </div>
   );

@@ -1,5 +1,6 @@
 import BoardHeader from '../components/organisms/BoardHeader';
 import BoardIntroduce from '../components/organisms/BoardIntroduce';
+import BoardFilterLine from '../components/organisms/BoardFilterLine';
 
 const Board = () => {
   return (
@@ -8,7 +9,9 @@ const Board = () => {
       <div className="w-full h-28 mt-1">
         <BoardIntroduce />
       </div>
-      <div></div>
+      <div>
+        <BoardFilterLine />
+      </div>
     </div>
   );
 };
