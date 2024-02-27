@@ -13,7 +13,7 @@ const BoardHeader = () => {
   const darkMode = useStore((state) => state.darkMode);
 
   return (
-    <header className="w-full h-16 bg-transparent flex justify-between items-center px-4">
+    <header className="h-16 bg-transparent flex justify-between items-center pl-4 mx-20">
       <div className="">
         <Logo />
       </div>
@@ -21,8 +21,8 @@ const BoardHeader = () => {
         <SearchBar />
       </div>
 
-      <div className=" flex items-center gap-x-4 ml-9">
-        <div className="hidden sm:flex gap-x-4 items-center">
+      <div className="w-1/7 flex justify-between items-center gap-x-4">
+        <div className="hidden sm:flex gap-x-3 items-center">
           <HeaderNickName title="닉네임" />
           <div
             className="w-8 h-8 bg-gray-200 rounded-full overflow-hidden cursor-pointer "
@@ -30,14 +30,12 @@ const BoardHeader = () => {
           />
         </div>
 
-        <div className="ml-5">
-          <div className="cursor-pointer">
-            <BarIcon
-              width={16}
-              height={16}
-              stroke={darkMode ? 'white' : 'black'}
-            />
-          </div>
+        <div className="cursor-pointer">
+          <BarIcon
+            width={16}
+            height={16}
+            stroke={darkMode ? 'white' : 'black'}
+          />
         </div>
       </div>
     </header>
