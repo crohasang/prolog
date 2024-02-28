@@ -11,7 +11,7 @@ const WriteBtn = () => {
 
   return (
     <button
-      className="bg-transparent flex items-center gap-x-2 px-2 py-1"
+      className="bg-transparent flex items-center gap-x-2"
       onClick={() => navigate('/write')}
     >
       <PencilSquareIcon

@@ -9,7 +9,7 @@ import BoardCard from '../components/organisms/BoardCard';
 const My = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col">
+    <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col px-8">
       <BoardHeader />
       <div className="font-pretendard sm:mx-32 mb-10">
         <h2 className="text-xl font-semibold dark:text-white mt-8">프로필</h2>
