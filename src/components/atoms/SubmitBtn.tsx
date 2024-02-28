@@ -2,9 +2,9 @@ const SubmitBtn = () => {
   return (
     <button
       type="submit"
-      className="mt-2 px-4 py-2 bg-blue-500 dark:bg-white text-white dark:text-black rounded-md float-right"
+      className="mt-2 px-4 py-2 bg-blue-500  text-white  rounded-md float-right"
     >
-      Submit
+      작성하기
     </button>
   );
 };
