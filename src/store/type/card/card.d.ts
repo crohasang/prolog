@@ -1,4 +1,5 @@
 export type CardResult = {
+  id: number;
   title: string;
   body: string;
   time: string;

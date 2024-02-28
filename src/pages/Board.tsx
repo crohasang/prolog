@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import BoardHeader from '../components/organisms/BoardHeader';
 import BoardIntroduce from '../components/organisms/BoardIntroduce';
 import BoardFilterLine from '../components/organisms/BoardFilterLine';
@@ -11,6 +13,7 @@ import { cardData } from '../store/data/card';
 import TopButton from '../components/atoms/TopButton';
 
 const Board = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col">
       <BoardHeader />
@@ -31,6 +34,7 @@ const Board = () => {
               commentNum={value.commentNum}
               author={value.author}
               likes={value.likes}
+              onClick={() => navigate(`/content/${value.id}`)}
             />
           ))}
       </div>

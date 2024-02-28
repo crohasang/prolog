@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Intro from './pages/Intro';
 import Board from './pages/Board';
+import Content from './pages/Content';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -13,6 +14,10 @@ const Router = () => {
     {
       path: '/board',
       element: <Board />,
+    },
+    {
+      path: '/content/:id',
+      element: <Content />,
     },
   ]);
 

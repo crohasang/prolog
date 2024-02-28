@@ -2,6 +2,7 @@ import { CardResult } from '../type/card/card';
 
 export const cardData: CardResult[] = [
   {
+    id: 1,
     title: '첫 번째 게시물',
     body: '이것은 첫 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-02-27T12:00:00',
@@ -10,6 +11,7 @@ export const cardData: CardResult[] = [
     likes: 10,
   },
   {
+    id: 2,
     title: '두 번째 게시물',
     body: '이것은 두 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-02-28T12:00:00',
@@ -18,6 +20,7 @@ export const cardData: CardResult[] = [
     likes: 20,
   },
   {
+    id: 3,
     title: '세 번째 게시물',
     body: '이것은 세 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-03-01T12:00:00',
@@ -26,6 +29,7 @@ export const cardData: CardResult[] = [
     likes: 30,
   },
   {
+    id: 4,
     title: '네 번째 게시물',
     body: '이것은 네 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-03-02T12:00:00',
@@ -34,6 +38,7 @@ export const cardData: CardResult[] = [
     likes: 40,
   },
   {
+    id: 5,
     title: '다섯 번째 게시물',
     body: '이것은 다섯 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-03-03T12:00:00',
@@ -42,6 +47,7 @@ export const cardData: CardResult[] = [
     likes: 50,
   },
   {
+    id: 6,
     title: '여섯 번째 게시물',
     body: '이것은 여섯 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-03-04T12:00:00',
@@ -50,6 +56,7 @@ export const cardData: CardResult[] = [
     likes: 60,
   },
   {
+    id: 7,
     title: '일곱 번째 게시물',
     body: '이것은 일곱 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-03-05T12:00:00',
@@ -58,6 +65,7 @@ export const cardData: CardResult[] = [
     likes: 70,
   },
   {
+    id: 8,
     title: '여덟 번째 게시물',
     body: '이것은 여덟 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-03-06T12:00:00',
@@ -66,6 +74,7 @@ export const cardData: CardResult[] = [
     likes: 80,
   },
   {
+    id: 9,
     title: '아홉 번째 게시물',
     body: '이것은 아홉 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-03-07T12:00:00',
@@ -74,6 +83,7 @@ export const cardData: CardResult[] = [
     likes: 90,
   },
   {
+    id: 10,
     title: '열 번째 게시물',
     body: '이것은 열 번째 게시물입니다. 여기에는 게시물의 내용이 들어갑니다.',
     time: '2024-03-08T12:00:00',
