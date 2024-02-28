@@ -8,6 +8,7 @@ import { CardResult } from '../store/type/card/card';
 
 // api에서 받아오지 않고 netlify에 보이게 하기 위해 생성한 임시 데이터
 import { cardData } from '../store/data/card';
+import TopButton from '../components/atoms/TopButton';
 
 const Board = () => {
   return (
@@ -34,6 +35,7 @@ const Board = () => {
           ))}
       </div>
       <DarkModeToggle />
+      <TopButton />
     </div>
   );
 };
