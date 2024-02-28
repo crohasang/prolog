@@ -15,7 +15,7 @@ const CommentWrite: React.FC = () => {
   };
 
   return (
-    <div className="font-pretendard mt-8 pl-4 sm:mx-32 flex flex-col">
+    <div className="font-pretendard mt-8 sm:mx-32 flex flex-col">
       <h2 className="text-xl font-semibold dark:text-white">댓글</h2>
 
       <form onSubmit={handleCommentSubmit} className="mt-4">

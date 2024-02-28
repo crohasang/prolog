@@ -1,28 +1,31 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import BoardHeader from '../components/organisms/BoardHeader';
-import BoardIntroduce from '../components/organisms/BoardIntroduce';
-import BoardFilterLine from '../components/organisms/BoardFilterLine';
-import BoardCard from '../components/organisms/BoardCard';
 import DarkModeToggle from '../components/atoms/DarkModeToggle';
-import { CardResult } from '../store/type/card/card';
-
-// api에서 받아오지 않고 netlify에 보이게 하기 위해 생성한 임시 데이터
-import { cardData } from '../store/data/card';
 import TopButton from '../components/atoms/TopButton';
+import { cardData } from '../store/data/card';
+import { CardResult } from '../store/type/card/card';
+import BoardCard from '../components/organisms/BoardCard';
 
-const Board = () => {
+const My = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col">
       <BoardHeader />
-      <div className="h-64 mt-3 flex-shrink-0">
-        <BoardIntroduce />
+      <div className="font-pretendard sm:mx-32 mb-10">
+        <h2 className="text-xl font-semibold dark:text-white mt-8">프로필</h2>
+        <div className="flex items-center mt-12">
+          <div className="w-24 h-24 bg-gray-300 rounded-full mr-12" />
+          <h2 className="text-xl font-semibold dark:text-white">닉네임</h2>
+          <button className="bg-transparent dark:text-gray-50 ml-4">
+            닉네임 변경하기
+          </button>
+        </div>
+
+        <h2 className="text-xl font-semibold dark:text-white mt-20">
+          내가 쓴 글
+        </h2>
       </div>
-      <div>
-        <BoardFilterLine />
-      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 mx-28 items-center justify-items-center">
         {cardData &&
           cardData.map((value: CardResult, index: number) => (
@@ -38,10 +41,11 @@ const Board = () => {
             />
           ))}
       </div>
+
       <DarkModeToggle />
       <TopButton />
     </div>
   );
 };
 
-export default Board;
+export default My;

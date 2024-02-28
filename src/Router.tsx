@@ -4,6 +4,7 @@ import Intro from './pages/Intro';
 import Board from './pages/Board';
 import Content from './pages/Content';
 import Write from './pages/Write';
+import My from './pages/My';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const Router = () => {
     {
       path: '/write',
       element: <Write />,
+    },
+    {
+      path: '/my',
+      element: <My />,
     },
   ]);
 
