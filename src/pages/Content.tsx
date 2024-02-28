@@ -23,7 +23,7 @@ const Content: React.FC = () => {
   return (
     <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col ">
       <BoardHeader />
-      <div className="font-pretendard pl-4 sm:mx-32 mt-20">
+      <div className="font-pretendard sm:mx-32 mt-20">
         <div className="text-2xl font-bold dark:text-white mt-4">
           {content.title}
         </div>

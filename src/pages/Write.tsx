@@ -35,7 +35,7 @@ const Write = () => {
   return (
     <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col">
       <BoardHeader />
-      <div className="font-pretendard pl-4 sm:mx-32 mt-10">
+      <div className="font-pretendard px-4 sm:mx-32 mt-10">
         <form onSubmit={handleWritingSubmit} className="mt-4">
           <h2 className="text-xl font-semibold dark:text-white">제목</h2>
           <input
