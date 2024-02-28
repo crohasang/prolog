@@ -16,28 +16,33 @@ const Board = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col">
-      <BoardHeader />
+      <div className="px-8">
+        <BoardHeader />
+      </div>
       <div className="h-64 mt-3 flex-shrink-0">
         <BoardIntroduce />
       </div>
-      <div>
-        <BoardFilterLine />
+      <div className="px-8">
+        <div>
+          <BoardFilterLine />
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 mx-28 items-center justify-items-center">
+          {cardData &&
+            cardData.map((value: CardResult, index: number) => (
+              <BoardCard
+                key={index}
+                title={value.title}
+                body={value.body}
+                time={value.time}
+                commentNum={value.commentNum}
+                author={value.author}
+                likes={value.likes}
+                onClick={() => navigate(`/content/${value.id}`)}
+              />
+            ))}
+        </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 mx-28 items-center justify-items-center">
-        {cardData &&
-          cardData.map((value: CardResult, index: number) => (
-            <BoardCard
-              key={index}
-              title={value.title}
-              body={value.body}
-              time={value.time}
-              commentNum={value.commentNum}
-              author={value.author}
-              likes={value.likes}
-              onClick={() => navigate(`/content/${value.id}`)}
-            />
-          ))}
-      </div>
+
       <DarkModeToggle />
       <TopButton />
     </div>

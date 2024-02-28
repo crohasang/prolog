@@ -21,7 +21,7 @@ const Content: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col ">
+    <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col px-8 ">
       <BoardHeader />
       <div className="font-pretendard sm:mx-32 mt-20">
         <div className="text-2xl font-bold dark:text-white mt-4">
