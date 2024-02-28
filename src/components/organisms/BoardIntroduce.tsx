@@ -4,7 +4,7 @@ import BoardIntroduceImage from '../../assets/images/boardIntroduceImage.jpg'; /
 const BoardIntroduce = () => {
   return (
     <div
-      className="w-full h-full bg-cover bg-center flex justify-center items-center text-white dark:text-black"
+      className="w-full h-full bg-cover bg-center flex justify-center items-center text-white dark:text-zinc-700"
       style={{ backgroundImage: `url(${BoardIntroduceImage})` }}
     >
       <p className="text-2xl font-bold">여러분들의 이야기를 들려주세요</p>
