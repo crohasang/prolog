@@ -4,15 +4,13 @@ import SubmitBtn from '../atoms/SubmitBtn';
 const CommentWrite: React.FC = () => {
   const [newComment, setNewComment] = useState<string>('');
 
-  const handleCommentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCommentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewComment(e.target.value);
   };
 
   const handleCommentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     console.log('New comment:', newComment);
-
     setNewComment('');
   };
 
@@ -21,8 +19,7 @@ const CommentWrite: React.FC = () => {
       <h2 className="text-xl font-semibold dark:text-white">댓글</h2>
 
       <form onSubmit={handleCommentSubmit} className="mt-4">
-        <input
-          type="text"
+        <textarea
           placeholder="바른 말 고운 말"
           value={newComment}
           onChange={handleCommentChange}
