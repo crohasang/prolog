@@ -34,6 +34,7 @@ const Content: React.FC = () => {
           {content.body}
         </div>
       </div>
+      {/* 댓글 표시될 곳 */}
       <CommentWrite />
       <DarkModeToggle />
       <TopButton />
