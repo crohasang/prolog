@@ -18,7 +18,7 @@ const BoardCard: React.FC<Props> = ({
   likes,
 }) => {
   return (
-    <div className="font-pretendard w-80 h-96 bg-white shadow-md overflow-hidden p-4 flex flex-col justify-between transform transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-105">
+    <div className="font-pretendard w-72 h-72 rounded-lg bg-white border-2  overflow-hidden p-4 flex flex-col justify-between transform transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105">
       <div>
         <h2 className="font-bold text-xl line-clamp-1">{title}</h2>
         <p className="text-sm line-clamp-3">{body}</p>

@@ -3,7 +3,7 @@ import BoardFilter from '../molecules/BoardFilter';
 
 const BoardFilterLine = () => {
   return (
-    <div className="flex justify-between mx-20">
+    <div className="flex justify-between sm:mx-32">
       <WriteBtn />
       <BoardFilter />
     </div>
