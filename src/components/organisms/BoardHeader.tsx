@@ -13,7 +13,7 @@ const BoardHeader = () => {
   const darkMode = useStore((state) => state.darkMode);
 
   return (
-    <header className="h-16 bg-transparent flex justify-between items-center pl-4 sm:mx-32">
+    <header className="h-16 bg-transparent flex justify-between items-center  sm:mx-32">
       <div className="">
         <Logo />
       </div>
