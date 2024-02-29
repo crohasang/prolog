@@ -2,7 +2,7 @@ import IntroHeader from '../components/organisms/IntroHeader';
 import IntroTitle from '../components/atoms/Intro/IntroTitle';
 
 import IntroBackgroundVideo from '../assets/videos/introBackGroundVideo3.mp4';
-import KakaoLoginBtn from '../components/atoms/KakaoLoginBtn';
+import GoogleLoginBtn from '../components/atoms/GoogleLoginBtn';
 
 const Intro = () => {
   return (
@@ -28,7 +28,7 @@ const Intro = () => {
       <IntroHeader />
       <div className="flex flex-col justify-center items-center space-y-20">
         <IntroTitle />
-        <KakaoLoginBtn />
+        <GoogleLoginBtn />
       </div>
     </div>
   );
