@@ -2,7 +2,9 @@ import IntroHeader from '../components/organisms/IntroHeader';
 import IntroTitle from '../components/atoms/Intro/IntroTitle';
 
 import IntroBackgroundVideo from '../assets/videos/introBackGroundVideo3.mp4';
-import KakaoLoginBtn from '../components/atoms/KakaoLoginBtn';
+import GoogleLoginBtn from '../components/atoms/GoogleLoginBtn';
+import EmailLoginBtn from '../components/atoms/EmailLoginBtn';
+import EmailRegisterBtn from '../components/atoms/EmailRegisterBtn';
 
 const Intro = () => {
   return (
@@ -26,9 +28,15 @@ const Intro = () => {
         <source src={IntroBackgroundVideo} type="video/mp4" />
       </video>
       <IntroHeader />
-      <div className="flex flex-col justify-center items-center space-y-20">
-        <IntroTitle />
-        <KakaoLoginBtn />
+      <div className="flex flex-col justify-center items-center gap-y-5">
+        <div className="mb-4">
+          <IntroTitle />
+        </div>
+
+        <EmailLoginBtn />
+
+        <EmailRegisterBtn />
+        <GoogleLoginBtn />
       </div>
     </div>
   );

@@ -5,12 +5,12 @@ const IntroTitle = () => {
 
   return (
     <div
-      className="font-pretendard bg-transparent text-white font-bold focus:outline-none text-6xl transition-opacity duration-1000"
+      className="font-pretendard bg-transparent text-white font-bold focus:outline-none transition-opacity duration-1000"
       style={{ opacity }}
     >
-      {/* 화면이 sm(640px)보다 작으면 PROlog가, sm보다 같거나 크면 '우리들의 이야기, PROlog'가 출력 */}
-      <span className="sm:hidden">PROlog</span>
-      <span className="hidden sm:inline">우리들의 이야기, PROlog</span>
+      <span className="text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl">
+        우리들의 이야기, PROlog
+      </span>
     </div>
   );
 };
