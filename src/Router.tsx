@@ -5,6 +5,7 @@ import Board from './pages/Board';
 import Content from './pages/Content';
 import Write from './pages/Write';
 import My from './pages/My';
+import Search from './pages/Search';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const Router = () => {
     {
       path: '/my',
       element: <My />,
+    },
+    {
+      path: 'search/:searchWord',
+      element: <Search />,
     },
   ]);
 
