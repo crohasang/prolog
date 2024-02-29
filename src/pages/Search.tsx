@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import BoardHeader from '../components/organisms/BoardHeader';
+import DarkModeToggle from '../components/atoms/DarkModeToggle';
+import TopButton from '../components/atoms/TopButton';
 
 const Search = () => {
   const { searchWord } = useParams();
@@ -11,6 +13,8 @@ const Search = () => {
           '{searchWord}' 검색 결과
         </div>
       </div>
+      <DarkModeToggle />
+      <TopButton />
     </div>
   );
 };
