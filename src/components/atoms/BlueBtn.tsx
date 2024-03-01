@@ -7,7 +7,7 @@ interface Props {
 const BlueBtn: React.FC<Props> = ({ title, onClick, disabled }) => {
   return (
     <button
-      className={` px-4 py-2 text-white rounded-md ${
+      className={` px-2 py-1 text-sm text-white rounded-md ${
         disabled ? 'bg-gray-400' : 'bg-blue-500'
       }`}
       disabled={disabled}
