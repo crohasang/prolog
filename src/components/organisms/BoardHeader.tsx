@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '../atoms/Logo';
 import SearchBar from '../molecules/SearchBar';
 import HeaderNickName from '../atoms/HeaderNickName';
+import { ReactComponent as UserIcon } from '../../assets/icons/user.svg';
+import useStore from '../../store/useStore';
 
 const BoardHeader = () => {
+  const darkMode = useStore((state) => state.darkMode);
   const navigate = useNavigate();
 
   return (
@@ -16,12 +19,15 @@ const BoardHeader = () => {
         <SearchBar />
       </div>
 
-      <div className="flex  items-center gap-x-4">
+      <div className="flex items-center gap-x-4">
         <HeaderNickName title="닉네임" />
-        <div
-          className="w-8 h-8 bg-gray-200 rounded-full overflow-hidden cursor-pointer "
-          onClick={() => navigate('/my')}
-        />
+        <div className="cursor-pointer " onClick={() => navigate('/my')}>
+          <UserIcon
+            width={16}
+            height={16}
+            fill={darkMode ? 'white' : 'black'}
+          />
+        </div>
       </div>
     </header>
   );
