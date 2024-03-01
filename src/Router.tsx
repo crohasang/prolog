@@ -7,6 +7,7 @@ import Content from './pages/Content';
 import Write from './pages/Write';
 import My from './pages/My';
 import Search from './pages/Search';
+import Register2 from './pages/Register/Register2';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const Router = () => {
     {
       path: '/register/1',
       element: <Register1 />,
+    },
+    {
+      path: '/register/2',
+      element: <Register2 />,
     },
     {
       path: '/board',
