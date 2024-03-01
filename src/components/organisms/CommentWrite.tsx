@@ -25,7 +25,9 @@ const CommentWrite: React.FC = () => {
           onChange={handleCommentChange}
           className="w-full p-2 border rounded-md"
         />
-        <BlueBtn title="제출하기" />
+        <div className="float-right mt-2">
+          <BlueBtn title="제출하기" />
+        </div>
       </form>
     </div>
   );
