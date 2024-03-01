@@ -3,9 +3,7 @@ import IntroTitle from '../components/atoms/Intro/IntroTitle';
 
 import IntroBackGroundImage from '../assets/images/introBackgroundImage.jpg';
 
-import GoogleLoginBtn from '../components/atoms/GoogleLoginBtn';
-import EmailLoginBtn from '../components/atoms/EmailLoginBtn';
-import EmailRegisterBtn from '../components/atoms/EmailRegisterBtn';
+import LoginArea from '../components/organisms/LoginArea';
 
 const Intro = () => {
   return (
@@ -16,12 +14,13 @@ const Intro = () => {
       >
         <IntroHeader />
 
-        <IntroTitle />
+        <div className="mt-2">
+          <IntroTitle />
+        </div>
 
-        <EmailLoginBtn />
-
-        <EmailRegisterBtn />
-        <GoogleLoginBtn />
+        <div className="mt-8">
+          <LoginArea />
+        </div>
       </div>
     </div>
   );
