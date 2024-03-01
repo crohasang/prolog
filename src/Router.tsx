@@ -1,11 +1,13 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Intro from './pages/Intro';
+import Register1 from './pages/Register/Register1';
 import Board from './pages/Board';
 import Content from './pages/Content';
 import Write from './pages/Write';
 import My from './pages/My';
 import Search from './pages/Search';
+import Register2 from './pages/Register/Register2';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -13,6 +15,14 @@ const Router = () => {
       index: true,
       path: '/',
       element: <Intro />,
+    },
+    {
+      path: '/register/1',
+      element: <Register1 />,
+    },
+    {
+      path: '/register/2',
+      element: <Register2 />,
     },
     {
       path: '/board',
