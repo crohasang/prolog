@@ -2,10 +2,13 @@ import { useState } from 'react';
 import IntroHeader from '../../components/organisms/IntroHeader';
 import IntroBackGroundImage from '../../assets/images/introBackgroundImage.jpg';
 import { useNavigate } from 'react-router-dom';
+import BlueBtn from '../../components/atoms/BlueBtn';
+import { useFadeIn } from '../../hooks/useFadeIn';
 
 const Register1 = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
+  const opacity = useFadeIn(0, 1, 500);
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
@@ -14,7 +17,10 @@ const Register1 = () => {
         style={{ backgroundImage: `url(${IntroBackGroundImage})` }}
       >
         <IntroHeader />
-        <div className="font-pretendard bg-gray-200 p-4 rounded max-w-sm mx-auto">
+        <div
+          className="font-pretendard bg-gray-200 p-4 rounded max-w-sm mx-auto transition-opacity duration-1000"
+          style={{ opacity }}
+        >
           <div className="text-xl font-bold mb-2">PROlog 개인정보 처리방침</div>
           <p className="mb-2">
             정보통신망 이용촉진 등에 관한 법률 등 관련 법률에 의한 개인정보
@@ -50,15 +56,11 @@ const Register1 = () => {
             </label>
           </div>
           <div className="flex justify-end">
-            <button
-              className={`bg-blue-500 text-white py-1 px-2 rounded ${
-                isChecked ? '' : 'opacity-50 cursor-not-allowed'
-              }`}
-              disabled={!isChecked}
+            <BlueBtn
+              title="->"
               onClick={() => navigate('/register/2')}
-            >
-              →
-            </button>
+              disabled={!isChecked}
+            />
           </div>
         </div>
       </div>

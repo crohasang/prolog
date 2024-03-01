@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SubmitBtn from '../atoms/SubmitBtn';
+import BlueBtn from '../atoms/BlueBtn';
 
 const CommentWrite: React.FC = () => {
   const [newComment, setNewComment] = useState<string>('');
@@ -25,7 +25,7 @@ const CommentWrite: React.FC = () => {
           onChange={handleCommentChange}
           className="w-full p-2 border rounded-md"
         />
-        <SubmitBtn />
+        <BlueBtn title="제출하기" />
       </form>
     </div>
   );

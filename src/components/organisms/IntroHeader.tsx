@@ -7,7 +7,7 @@ import { useFadeIn } from '../../hooks/useFadeIn';
 
 const IntroHeader = () => {
   const navigate = useNavigate();
-  const opacity = useFadeIn(0, 1, 1000);
+  const opacity = useFadeIn(0, 1, 500);
 
   return (
     <header

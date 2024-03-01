@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import BoardHeader from '../components/organisms/BoardHeader';
-import SubmitBtn from '../components/atoms/SubmitBtn';
 import DarkModeToggle from '../components/atoms/DarkModeToggle';
 import TopButton from '../components/atoms/TopButton';
 
 import { ReactComponent as PictureIcon } from '../assets/icons/picture.svg';
 
 import useStore from '../store/useStore';
+import BlueBtn from '../components/atoms/BlueBtn';
 
 const Write = () => {
   // 다크모드
@@ -60,7 +60,9 @@ const Write = () => {
             onChange={handleWritingChange}
             className="w-full p-2 border rounded-md min-h-72 mt-4"
           />
-          <SubmitBtn />
+          <div className="mt-2 float-right">
+            <BlueBtn title="제출하기" />
+          </div>
         </form>
       </div>
       <DarkModeToggle />
