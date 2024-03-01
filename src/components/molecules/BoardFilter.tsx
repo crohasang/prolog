@@ -11,7 +11,7 @@ const BoardFilter = () => {
     <div className="my-2">
       <label
         htmlFor="filter"
-        className="font-pretendard-medium block text-sm text-black dark:text-white"
+        className="font-pretendard-medium block text-sm text-black dark:text-white "
       ></label>
 
       <select
