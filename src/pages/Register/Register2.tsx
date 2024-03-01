@@ -9,10 +9,10 @@ const Register2 = () => {
   const navigate = useNavigate();
   const opacity = useFadeIn(0, 1, 500);
 
-  const [isChecked, setIsChecked] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [nickname, setNickname] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [passwordCheck, setPasswordCheck] = useState<string>('');
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) =>
     setEmail(e.target.value);
@@ -22,6 +22,9 @@ const Register2 = () => {
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) =>
     setPassword(e.target.value);
+
+  const handlePasswordCheckChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setPasswordCheck(e.target.value);
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
@@ -73,8 +76,8 @@ const Register2 = () => {
           <div className="flex items-center gap-x-2 mt-2">
             <input
               type="password"
-              value={password}
-              onChange={handlePasswordChange}
+              value={passwordCheck}
+              onChange={handlePasswordCheckChange}
               className="border-2 border-gray-200 p-2 w-64"
               placeholder="비밀번호를 다시 입력하세요"
             />
