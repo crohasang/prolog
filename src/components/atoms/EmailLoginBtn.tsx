@@ -8,7 +8,7 @@ const EmailLoginBtn: React.FC = () => {
 
   return (
     <button
-      className="font-pretendard font-semibold w-48 h-10 bg-slate-200 text-black cursor-pointer rounded-md transition-opacity duration-1000"
+      className="font-pretendard font-semibold w-48 h-10 bg-white text-black cursor-pointer rounded-md transition-opacity duration-1000"
       style={{ opacity }}
       onClick={() => navigate('/login')}
     >
