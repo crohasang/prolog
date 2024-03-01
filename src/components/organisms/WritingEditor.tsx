@@ -47,7 +47,7 @@ const WritingEditor: React.FC<Props> = ({ value, onChange }) => {
       toolbar: {
         container: toolbarOptions,
       },
-      imageDrop: true,
+      // imageDrop: true,
     }),
     []
   );

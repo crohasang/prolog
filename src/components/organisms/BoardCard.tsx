@@ -2,7 +2,6 @@ import React from 'react';
 
 interface Props {
   title: string;
-  body: string;
   time: string;
   commentNum: number;
   author: string;
@@ -12,30 +11,32 @@ interface Props {
 
 const BoardCard: React.FC<Props> = ({
   title,
-  body,
   time,
   commentNum,
   author,
   likes,
   onClick,
 }) => {
+  const maxLength = 12; // 최대 길이 설정
+  const trimmedTitle =
+    title.length > maxLength ? title.substring(0, maxLength) + '...' : title;
+
   return (
     <div
-      className="font-pretendard w-72 h-72 rounded-lg bg-white  dark:bg-zinc-700 text-zinc-700 dark:text-white border-2
-    overflow-hidden p-4 flex flex-col justify-between transform transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105"
+      className="font-pretendard w-1/3 h-auto bg-white dark:bg-zinc-700 text-zinc-700 dark:text-white border-b-2
+    overflow-hidden p-4 flex flex-col justify-between cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-105"
       onClick={onClick}
     >
       <div>
-        <h2 className="font-bold text-xl line-clamp-1">{title}</h2>
-        <p className="text-sm line-clamp-3">{body}</p>
+        <div className="font-bold text-lg">
+          {trimmedTitle} [{commentNum}]
+        </div>
       </div>
       <div>
-        <p className="text-left">
-          {time} , {commentNum}개의 댓글
-        </p>
+        <div className="text-left text-zinc-500 text-xs ">{time}</div>
         <div className="flex justify-between items-center mt-2">
-          <p>{author}</p>
-          <p>👍 {likes}</p>
+          <div>{author}</div>
+          <div className="font-bold">❤️ {likes}</div>
         </div>
       </div>
     </div>

@@ -26,13 +26,13 @@ const Board = () => {
         <div>
           <BoardFilterLine />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 mx-28 items-center justify-items-center">
+        <hr className="border-gray-300 dark:border-white" />
+        <div className="flex flex-col items-center gap-y-5">
           {cardData &&
             cardData.map((value: CardResult, index: number) => (
               <BoardCard
                 key={index}
                 title={value.title}
-                body={value.body}
                 time={value.time}
                 commentNum={value.commentNum}
                 author={value.author}
@@ -40,6 +40,17 @@ const Board = () => {
                 onClick={() => navigate(`/content/${value.id}`)}
               />
             ))}
+        </div>
+        <div className="mt-4 flex justify-center">
+          <button className="mx-1 px-3 py-1 border-r-1 bg-transparent text-zinc-700 dark:text-white">
+            1
+          </button>
+          <button className="mx-1 px-3 py-1 border-r-1  bg-transparent text-zinc-700 dark:text-white">
+            2
+          </button>
+          <button className="mx-1 px-3 py-1 border-r-1  bg-transparent text-zinc-700 dark:text-white">
+            3
+          </button>
         </div>
       </div>
 
