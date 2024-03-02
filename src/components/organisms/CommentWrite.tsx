@@ -25,7 +25,7 @@ const CommentWrite: React.FC = () => {
           placeholder="바른 말 고운 말"
           value={newComment}
           onChange={handleCommentChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black"
         />
         <div className="float-right mt-2">
           <BlueBtn title="제출하기" />
