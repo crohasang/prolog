@@ -18,7 +18,7 @@ const Register1 = () => {
       >
         <IntroHeader />
         <div
-          className="font-pretendard bg-gray-200 p-4 rounded max-w-sm mx-auto transition-opacity duration-1000"
+          className="font-pretendard bg-gray-200 text-black p-4 rounded max-w-sm mx-auto transition-opacity duration-1000"
           style={{ opacity }}
         >
           <div className="text-xl font-bold mb-2">PROlog 개인정보 처리방침</div>

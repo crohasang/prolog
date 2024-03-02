@@ -20,7 +20,11 @@ const BoardHeader = () => {
       </div>
 
       <div className="flex items-center gap-x-4">
-        <HeaderNickName title="닉네임" />
+        {/* 화면 크기가 md 이상에서만 닉네임 표시 */}
+        <div className="hidden md:block">
+          <HeaderNickName title="닉네임" />
+        </div>
+
         <div className="cursor-pointer " onClick={() => navigate('/my')}>
           <UserIcon
             width={16}

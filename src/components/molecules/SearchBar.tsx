@@ -13,10 +13,10 @@ const SearchBar = () => {
   return (
     <div className="flex items-center bg-gray-200 rounded-full p-2 w-full">
       <div className="flex-shrink-0">
-        <MagnifyingGlassIcon width={16} height={16} />
+        <MagnifyingGlassIcon width={16} height={16} stroke="black" />
       </div>
       <input
-        className="ml-2 bg-transparent outline-none placeholder-gray-500 flex-grow"
+        className="ml-2 bg-transparent outline-none text-black placeholder-gray-500 flex-grow"
         type="text"
         value={searchWord}
         onChange={(e) => setSearchWord(e.target.value)}

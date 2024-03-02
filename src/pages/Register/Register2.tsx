@@ -37,7 +37,7 @@ const Register2 = () => {
           className="font-pretendard bg-gray-200 p-4 rounded max-w-md mx-auto transition-opacity duration-1000 "
           style={{ opacity }}
         >
-          <div className="text-xl font-bold ">이메일</div>
+          <div className="text-xl font-bold text-black">이메일</div>
           <div className="flex items-center gap-x-2 mt-2">
             <input
               type="email"
@@ -49,7 +49,7 @@ const Register2 = () => {
             <BlueBtn title="중복 검사" />
           </div>
 
-          <div className="text-xl font-bold mt-2 ">닉네임</div>
+          <div className="text-xl font-bold mt-2 text-black ">닉네임</div>
           <div className="flex items-center gap-x-2 mt-2">
             <input
               type="text"
@@ -61,7 +61,7 @@ const Register2 = () => {
             <BlueBtn title="중복 검사" />
           </div>
 
-          <div className="text-xl font-bold mt-2 ">비밀번호</div>
+          <div className="text-xl font-bold mt-2 text-black ">비밀번호</div>
           <div className="flex items-center gap-x-2 mt-2">
             <input
               type="password"
@@ -72,7 +72,7 @@ const Register2 = () => {
             />
           </div>
 
-          <div className="text-xl font-bold mt-2 ">비밀번호 확인</div>
+          <div className="text-xl font-bold mt-2 text-black">비밀번호 확인</div>
           <div className="flex items-center gap-x-2 mt-2">
             <input
               type="password"
