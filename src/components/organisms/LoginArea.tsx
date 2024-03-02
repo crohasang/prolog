@@ -12,12 +12,12 @@ const LoginArea = () => {
     >
       <div className="text-left font-semibold text-black text-xl">로그인</div>
       <input
-        className="bg-gray-200 border-b-2  border-gray-500 p-2"
+        className="bg-gray-200 border-b-2  border-gray-500 p-2 text-black"
         type="text"
         placeholder="이메일"
       />
       <input
-        className="bg-gray-200 border-b-2 border-gray-500 p-2"
+        className="bg-gray-200 border-b-2 border-gray-500 p-2 text-black"
         type="password"
         placeholder="비밀번호"
       />
