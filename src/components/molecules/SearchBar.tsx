@@ -16,7 +16,7 @@ const SearchBar = () => {
         <MagnifyingGlassIcon width={16} height={16} stroke="black" />
       </div>
       <input
-        className="ml-2 bg-transparent outline-none text-black placeholder-gray-500 flex-grow"
+        className="ml-2 bg-transparent outline-none text-black placeholder-gray-500 flex-grow overflow-x-auto"
         type="text"
         value={searchWord}
         onChange={(e) => setSearchWord(e.target.value)}

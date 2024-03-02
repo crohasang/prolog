@@ -43,7 +43,7 @@ const Register2 = () => {
               type="email"
               value={email}
               onChange={handleEmailChange}
-              className="border-2 border-gray-200 p-2 w-64"
+              className="border-2 border-gray-200 p-2 w-64 text-black"
               placeholder="이메일을 입력하세요"
             />
             <BlueBtn title="중복 검사" />
@@ -55,7 +55,7 @@ const Register2 = () => {
               type="text"
               value={nickname}
               onChange={handleNicknameChange}
-              className="border-2 border-gray-200 p-2 w-64"
+              className="border-2 border-gray-200 p-2 w-64 text-black"
               placeholder="닉네임을 입력하세요"
             />
             <BlueBtn title="중복 검사" />
@@ -67,7 +67,7 @@ const Register2 = () => {
               type="password"
               value={password}
               onChange={handlePasswordChange}
-              className="border-2 border-gray-200 p-2 w-64"
+              className="border-2 border-gray-200 p-2 w-64 text-black"
               placeholder="비밀번호를 입력하세요"
             />
           </div>
@@ -78,7 +78,7 @@ const Register2 = () => {
               type="password"
               value={passwordCheck}
               onChange={handlePasswordCheckChange}
-              className="border-2 border-gray-200 p-2 w-64"
+              className="border-2 border-gray-200 p-2 w-64 text-black"
               placeholder="비밀번호를 다시 입력하세요"
             />
           </div>
