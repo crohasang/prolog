@@ -35,7 +35,7 @@ const My = () => {
         <MyIntroduce />
       </div>
       <div className="font-pretendard  sm:mx-32 mb-10 px-8">
-        <div className="flex justify-between items-center my-20">
+        <div className="flex flex-col gap-y-4 my-20">
           <div className="text-xl font-semibold text-black dark:text-white">
             닉네임
           </div>
@@ -45,14 +45,14 @@ const My = () => {
                 type="text"
                 value={nickname}
                 onChange={handleNicknameChange}
-                className="text-lg rounded-lg border-2"
+                className="font-pretendard text-lg rounded-lg border-2 text-black"
               />
             ) : (
               <div className="text-lg text-black dark:text-white ">
                 {nickname}
               </div>
             )}
-            <div className="mr-4">
+            <div className="mr-4 whitespace-nowrap">
               <BlueBtn title="변경" onClick={handleEditClick} />
             </div>
           </div>
