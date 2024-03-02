@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react';
-import ReactQuill from 'react-quill';
-// import ImageDrop from 'quill-image-drop-module';
+import ReactQuill, { Quill } from 'react-quill';
+import { ImageDrop } from 'quill-image-drop-module';
 import 'react-quill/dist/quill.snow.css';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   onChange: (e: string) => void;
 }
 
-// Quill.register('modules/imageDrop', ImageDrop);
+Quill.register('modules/imageDrop', ImageDrop);
 
 const WritingEditor: React.FC<Props> = ({ value, onChange }) => {
   const toolbarOptions = [
@@ -47,7 +47,7 @@ const WritingEditor: React.FC<Props> = ({ value, onChange }) => {
       toolbar: {
         container: toolbarOptions,
       },
-      // imageDrop: true,
+      imageDrop: true,
     }),
     []
   );

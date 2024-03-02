@@ -34,11 +34,9 @@ const My = () => {
       <div className="h-64 mt-3 flex-shrink-0">
         <MyIntroduce />
       </div>
-      <div className="font-pretendard md:mx-32 mb-10 px-8">
-        <div className="flex flex-col gap-y-8 my-20">
-          <div className="text-xl font-semibold text-black dark:text-white">
-            닉네임
-          </div>
+      <div className="font-pretendard sm:mx-32 mb-10 px-8">
+        <div className="flex justify-between items-center my-20">
+          <div className="text-xl font-semibold dark:text-white">닉네임</div>
           <div className="flex items-center gap-x-4">
             {isEditing ? (
               <input
@@ -48,18 +46,16 @@ const My = () => {
                 className="text-lg rounded-lg border-2"
               />
             ) : (
-              <div className="text-lg text-black dark:text-white ">
-                {nickname}
-              </div>
+              <div className="text-lg dark:text-white ">{nickname}</div>
             )}
-            <div className="mr-4 whitespace-nowrap">
+            <div className="mr-4">
               <BlueBtn title="변경" onClick={handleEditClick} />
             </div>
           </div>
         </div>
 
         <hr className="border-gray-300 dark:border-white mt-4" />
-        <div className="text-xl font-semibold text-black dark:text-white mt-10">
+        <div className="text-xl font-semibold dark:text-white mt-10">
           내가 쓴 글
         </div>
       </div>
@@ -90,7 +86,7 @@ const My = () => {
           3
         </button>
       </div>
-      <div className="font-pretendard md:mx-32 mt-20 mb-20 px-8">
+      <div className="font-pretendard sm:mx-32 mt-20 mb-20 px-8">
         <div className="float-right">
           <RedBtn title="탈퇴하기" />
         </div>
