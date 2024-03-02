@@ -52,7 +52,7 @@ const My = () => {
                 {nickname}
               </div>
             )}
-            <div className="mr-4">
+            <div className="mr-4 whitespace-nowrap">
               <BlueBtn title="변경" onClick={handleEditClick} />
             </div>
           </div>
