@@ -23,7 +23,7 @@ const BoardCard: React.FC<Props> = ({
 
   return (
     <div
-      className="font-pretendard w-1/3 h-auto bg-white dark:bg-zinc-700 text-zinc-700 dark:text-white border-b-2
+      className="font-pretendard w-full md:w-1/3 h-auto bg-white dark:bg-zinc-700 text-zinc-700 dark:text-white border-b-2
     overflow-hidden p-4 flex flex-col justify-between cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-105"
       onClick={onClick}
     >

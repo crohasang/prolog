@@ -16,7 +16,9 @@ const CommentWrite: React.FC = () => {
 
   return (
     <div className="font-pretendard mt-8 sm:mx-32 flex flex-col">
-      <div className="text-xl font-semibold dark:text-white">댓글</div>
+      <div className="text-xl font-semibold text-black dark:text-white">
+        댓글
+      </div>
 
       <form onSubmit={handleCommentSubmit} className="mt-4">
         <textarea
