@@ -8,6 +8,7 @@ import Write from './pages/Write';
 import My from './pages/My';
 import Search from './pages/Search';
 import Register2 from './pages/Register/Register2';
+import Loading from './components/organisms/Loading';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const Router = () => {
     {
       path: 'search/:searchWord',
       element: <Search />,
+    },
+    {
+      path: 'loading',
+      element: <Loading />,
     },
   ]);
 
