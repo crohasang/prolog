@@ -5,7 +5,11 @@ const GoogleLoginBtn = () => {
   const opacity = useFadeIn(0, 1, 1000);
 
   const handleLoginClick = () => {
-    console.log('Google Login Button clicked!');
+    window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?
+		client_id=${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}
+		&redirect_uri=${process.env.REACT_APP_GOOGLE_AUTH_REDIRECT_URI}
+		&response_type=code
+		&scope=email profile`;
   };
 
   return (
