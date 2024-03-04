@@ -1,12 +1,14 @@
+import useStore from '../../store/useStore';
 import RedBtn from './RedBtn';
 import { useNavigate } from 'react-router-dom';
 
 const LogoutBtn = () => {
   const navigate = useNavigate();
+  const logOut = useStore((state) => state.logOut);
 
   const handleLogoutClick = () => {
-    // 로컬스토리지에서 토큰 제거
-    localStorage.removeItem('accessToken');
+    // 로그아웃
+    logOut();
 
     // 인트로 화면으로 이동
     navigate('/');
