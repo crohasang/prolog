@@ -9,22 +9,22 @@ const Register2 = () => {
   const navigate = useNavigate();
   const opacity = useFadeIn(0, 1, 500);
 
-  const [email, setEmail] = useState<string>('');
+  // const [email, setEmail] = useState<string>('');
   const [nickname, setNickname] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [passwordCheck, setPasswordCheck] = useState<string>('');
+  // const [password, setPassword] = useState<string>('');
+  // const [passwordCheck, setPasswordCheck] = useState<string>('');
 
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setEmail(e.target.value);
+  // const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) =>
+  //   setEmail(e.target.value);
 
   const handleNicknameChange = (e: ChangeEvent<HTMLInputElement>) =>
     setNickname(e.target.value);
 
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setPassword(e.target.value);
+  // const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) =>
+  //   setPassword(e.target.value);
 
-  const handlePasswordCheckChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setPasswordCheck(e.target.value);
+  // const handlePasswordCheckChange = (e: ChangeEvent<HTMLInputElement>) =>
+  //   setPasswordCheck(e.target.value);
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
@@ -37,7 +37,7 @@ const Register2 = () => {
           className="font-pretendard bg-gray-200 p-4 rounded max-w-md mx-auto transition-opacity duration-1000 "
           style={{ opacity }}
         >
-          <div className="text-xl font-bold text-black">이메일</div>
+          {/* <div className="text-xl font-bold text-black">이메일</div>
           <div className="flex items-center gap-x-2 mt-2">
             <input
               type="email"
@@ -47,7 +47,7 @@ const Register2 = () => {
               placeholder="이메일을 입력하세요"
             />
             <BlueBtn title="중복 검사" />
-          </div>
+          </div> */}
 
           <div className="text-xl font-bold mt-2 text-black ">닉네임</div>
           <div className="flex items-center gap-x-2 mt-2">
@@ -56,12 +56,12 @@ const Register2 = () => {
               value={nickname}
               onChange={handleNicknameChange}
               className="border-2 border-gray-200 p-2 w-64 text-black"
-              placeholder="닉네임을 입력하세요"
+              placeholder="10자 이하로 입력해주세요"
             />
             <BlueBtn title="중복 검사" />
           </div>
 
-          <div className="text-xl font-bold mt-2 text-black ">비밀번호</div>
+          {/* <div className="text-xl font-bold mt-2 text-black ">비밀번호</div>
           <div className="flex items-center gap-x-2 mt-2">
             <input
               type="password"
@@ -81,9 +81,9 @@ const Register2 = () => {
               className="border-2 border-gray-200 p-2 w-64 text-black"
               placeholder="비밀번호를 다시 입력하세요"
             />
-          </div>
+          </div> */}
 
-          <div className="float-right">
+          <div className="float-right mt-10">
             <BlueBtn
               title="가입하기"
               disabled={true}
