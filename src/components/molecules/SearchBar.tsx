@@ -7,7 +7,11 @@ const SearchBar = () => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    navigate(`/search/${searchWord}`);
+    if (searchWord.trim() === '') {
+      alert('엥 아무것도 입력 안하셨는데요');
+    } else {
+      navigate(`/search/${searchWord}`);
+    }
   };
 
   return (
