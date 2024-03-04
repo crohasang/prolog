@@ -1,17 +1,19 @@
 import GoogleLoginBtn from '../atoms/GoogleLoginBtn';
 import { useFadeIn } from '../../hooks/useFadeIn';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const LoginArea = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const opacity = useFadeIn(0, 1, 1000);
   return (
     <div
       className="font-pretendard flex flex-col items-start space-y-4 bg-gray-200 p-4 rounded transition-opacity duration-1000"
       style={{ opacity }}
     >
-      <div className="text-left font-semibold text-black text-xl">로그인</div>
-      <input
+      <div className="text-left font-semibold text-black text-xl">
+        로그인/회원가입
+      </div>
+      {/* <input
         className="bg-gray-200 border-b-2  border-gray-500 p-2 text-black"
         type="text"
         placeholder="이메일"
@@ -34,7 +36,7 @@ const LoginArea = () => {
         >
           로그인
         </button>
-      </div>
+      </div> */}
       <hr className="border-gray-300 w-full" />
 
       <div className="w-full flex justify-center">
