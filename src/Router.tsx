@@ -8,7 +8,8 @@ import Write from './pages/Write';
 import My from './pages/My';
 import Search from './pages/Search';
 import Register2 from './pages/Register/Register2';
-import Loading from './components/organisms/Loading';
+import Loading from './pages/Loading';
+import GoogleLogin from './pages/GoogleLogin';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -48,6 +49,10 @@ const Router = () => {
     {
       path: 'loading',
       element: <Loading />,
+    },
+    {
+      path: 'login',
+      element: <GoogleLogin />,
     },
   ]);
 
