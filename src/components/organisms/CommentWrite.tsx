@@ -10,6 +10,9 @@ const CommentWrite: React.FC = () => {
 
   const handleCommentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (newComment.trim() === '') {
+      alert('엥 아무것도 입력 안하셨는데요');
+    }
     console.log('New comment:', newComment);
     setNewComment('');
   };
