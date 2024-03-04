@@ -1,8 +1,11 @@
 import { create } from 'zustand';
 
-interface State {
+export interface State {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  isLoggedIn: boolean;
+  logIn: () => void;
+  logOut: () => void;
 }
 
 const useStore = create<State>((set) => ({
@@ -17,6 +20,18 @@ const useStore = create<State>((set) => ({
       }
       return { darkMode: newDarkMode };
     }),
+
+  // 로그인 여부
+  isLoggedIn: !!localStorage.getItem('accessToken'),
+
+  // 로그인
+  logIn: () => set({ isLoggedIn: true }),
+
+  // 로그아웃
+  logOut: () => {
+    localStorage.removeItem('accessToken');
+    set({ isLoggedIn: false });
+  },
 }));
 
 export default useStore;

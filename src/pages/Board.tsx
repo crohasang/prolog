@@ -15,7 +15,7 @@ import TopButton from '../components/atoms/TopButton';
 const Board = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col">
+    <div className="font-pretendard min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col">
       <div className="px-8">
         <BoardHeader />
       </div>

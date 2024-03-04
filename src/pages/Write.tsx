@@ -30,16 +30,28 @@ const Write = () => {
   // 제출
   const handleWritingSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (newWriting.trim() === '<p><br></p>') {
+      setNewWriting('');
+    }
 
-    // // FormData 생성
-    // const formData = new FormData();
-    // formData.append('title', newTitle);
-    // formData.append('writing', newWriting);
+    if (newTitle.trim() === '') {
+      alert('제목이 빈 칸인데요?');
+    } else if (
+      newWriting.trim() === '' ||
+      newWriting.trim() === '<p><br></p>'
+    ) {
+      alert('본문에 아무것도 안 적으셨네요??');
+    } else {
+      // FormData 생성
+      // const formData = new FormData();
+      // formData.append('title', newTitle);
+      // formData.append('writing', newWriting);
 
-    // // 서버에 POST 요청 보내기
-    // mutation.mutate(formData);
+      // // 서버에 POST 요청 보내기
+      // mutation.mutate(formData);
 
-    console.log('New comment:', newWriting);
+      console.log('New comment:', newWriting);
+    }
   };
 
   return (

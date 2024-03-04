@@ -17,8 +17,17 @@ const My = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [nickname, setNickname] = useState('타락파워전사');
 
+  // 변경 버튼을 눌렀을 때
   const handleEditClick = () => {
     setIsEditing(true);
+  };
+
+  const handleNicknameChangeClick = () => {
+    if (nickname.trim() === '') {
+      alert('닉네임이 한 글자라도 있어야죠!');
+    } else {
+      setIsEditing(false);
+    }
   };
 
   const handleNicknameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,20 +50,27 @@ const My = () => {
           </div>
           <div className="flex items-center gap-x-4">
             {isEditing ? (
-              <input
-                type="text"
-                value={nickname}
-                onChange={handleNicknameChange}
-                className="font-pretendard text-lg rounded-lg border-2 text-black"
-              />
+              <>
+                <input
+                  type="text"
+                  value={nickname}
+                  onChange={handleNicknameChange}
+                  className="font-pretendard text-lg rounded-lg border-2 text-black"
+                />
+                <div className="mr-4 whitespace-nowrap">
+                  <BlueBtn title="확인" onClick={handleNicknameChangeClick} />
+                </div>
+              </>
             ) : (
-              <div className="text-lg text-black dark:text-white ">
-                {nickname}
-              </div>
+              <>
+                <div className="text-lg text-black dark:text-white ">
+                  {nickname}
+                </div>
+                <div className="mr-4 whitespace-nowrap">
+                  <BlueBtn title="변경" onClick={handleEditClick} />
+                </div>
+              </>
             )}
-            <div className="mr-4 whitespace-nowrap">
-              <BlueBtn title="변경" onClick={handleEditClick} />
-            </div>
           </div>
         </div>
 
