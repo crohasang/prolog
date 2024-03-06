@@ -1,0 +1,78 @@
+{
+  "code": 200,
+  "status": 1,
+  "message": "Comments fetched successfully",
+  "result": [
+    {
+      "isAuthor": true,
+      "id": 1,
+      "author": "user1",
+      "text": "This is a comment from user1.",
+      "likes": 5
+    },
+    {
+      "isAuthor": false,
+      "id": 2,
+      "author": "user2",
+      "text": "This is a comment from user2.",
+      "likes": 3
+    },
+    {
+      "isAuthor": true,
+      "id": 3,
+      "author": "user1",
+      "text": "Another comment from user1.",
+      "likes": 2
+    },
+    {
+      "isAuthor": false,
+      "id": 4,
+      "author": "user3",
+      "text": "This is a comment from user3.",
+      "likes": 0
+    },
+    {
+      "isAuthor": true,
+      "id": 5,
+      "author": "user1",
+      "text": "Yet another comment from user1.",
+      "likes": 1
+    },
+    {
+      "isAuthor": false,
+      "id": 6,
+      "author": "user2",
+      "text": "Another comment from user2.",
+      "likes": 4
+    },
+    {
+      "isAuthor": false,
+      "id": 7,
+      "author": "user3",
+      "text": "Another comment from user3.",
+      "likes": 2
+    },
+    {
+      "isAuthor": true,
+      "id": 8,
+      "author": "user1",
+      "text": "One more comment from user1.",
+      "likes": 3
+    },
+    {
+      "isAuthor": false,
+      "id": 9,
+      "author": "user2",
+      "text": "Yet another comment from user2.",
+      "likes": 5
+    },
+    {
+      "isAuthor": false,
+      "id": 10,
+      "author": "user3",
+      "text": "One more comment from user3.",
+      "likes": 1
+    }
+  ],
+  "messages": "End of results"
+}

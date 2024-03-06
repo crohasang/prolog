@@ -6,6 +6,7 @@ import BoardHeader from '../components/organisms/BoardHeader';
 import DarkModeToggle from '../components/atoms/DarkModeToggle';
 import TopButton from '../components/atoms/TopButton';
 import CommentWrite from '../components/organisms/CommentWrite';
+import CommentSection from '../components/organisms/CommentSection';
 
 const Content: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,7 +22,7 @@ const Content: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col px-8 ">
+    <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col px-8 mb-10">
       <BoardHeader />
       <div className="font-pretendard text-black sm:mx-32 mt-20">
         <div className="text-2xl font-bold dark:text-white mt-4">
@@ -34,7 +35,7 @@ const Content: React.FC = () => {
           {content.body}
         </div>
       </div>
-      {/* 댓글 표시될 곳 */}
+      <CommentSection />
       <CommentWrite />
       <DarkModeToggle />
       <TopButton />
