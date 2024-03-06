@@ -1,29 +1,16 @@
-import { fetchCommentData } from './../../apis/comment/fetchCommentData';
-import Loading from './../../pages/Loading';
-import { useQuery } from '@tanstack/react-query';
 import BlueBtn from './../atoms/BlueBtn';
 import RedBtn from '../atoms/RedBtn';
+import { CommentResult } from '../../store/type/detail/detail';
 
-const CommentSection = () => {
-  // fetchCommentData
-  const {
-    data: CommentData,
-    isLoading: isCommentDataLoading,
-    isError: isCommentDataError,
-  } = useQuery({
-    queryKey: ['fetchCommentData'],
-    queryFn: () => fetchCommentData(),
-  });
+interface Props {
+  CommentResult: CommentResult[];
+}
 
-  // 로딩 중일 때
-  if (isCommentDataLoading) {
-    return <Loading />;
-  }
-
+const CommentSection: React.FC<Props> = ({ CommentResult }) => {
   return (
     <div className="font-pretendard mt-8 sm:mx-32 flex flex-col text-black dark:text-white gap-y-2">
-      {CommentData !== undefined &&
-        CommentData.map((value) => (
+      {CommentResult !== undefined &&
+        CommentResult.map((value) => (
           <div className="w-full p-2 border rounded-md" key={value.id}>
             <div className="text-sm font-semibold ">{value.author}</div>
             <div className="text-sm font-light mt-2">{value.text}</div>
