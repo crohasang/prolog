@@ -13,6 +13,7 @@ import Loading from './Loading';
 import BlueBtn from '../components/atoms/BlueBtn';
 import RedBtn from '../components/atoms/RedBtn';
 import WritingEditor from '../components/organisms/WritingEditor';
+import LikesBtn from '../components/molecules/LikesBtn';
 
 const Content: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -78,9 +79,12 @@ const Content: React.FC = () => {
             <div className="h-auto bg-gray-100 dark:bg-gray-800 dark:text-white rounded-lg mt-10 p-4 ">
               {DetailData?.result.body}
             </div>
-            <div className="flex gap-x-2 whitespace-nowrap float-right mt-10">
-              <BlueBtn title="수정" onClick={handleEditClick} />
-              <RedBtn title="삭제" />
+            <div className="flex justify-between mt-10">
+              <LikesBtn likes={DetailData?.result.likes} isContent={true} />
+              <div className="flex gap-x-2 whitespace-nowrap">
+                <BlueBtn title="수정" onClick={handleEditClick} />
+                <RedBtn title="삭제" />
+              </div>
             </div>
           </>
         )}

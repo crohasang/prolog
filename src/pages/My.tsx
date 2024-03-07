@@ -81,7 +81,7 @@ const My = () => {
       </div>
 
       <div className="flex flex-col items-center gap-y-5">
-        {cardData &&
+        {cardData && cardData.length > 0 ? (
           cardData.map((value: CardResult, index: number) => (
             <BoardCard
               key={index}
@@ -92,7 +92,12 @@ const My = () => {
               likes={value.likes}
               onClick={() => navigate(`/content/${value.id}`)}
             />
-          ))}
+          ))
+        ) : (
+          <div className="flex justify-center items-center h-full">
+            <div>아직 작성한 글이 없습니다.</div>
+          </div>
+        )}
       </div>
 
       <div className="mt-4 flex justify-center">
