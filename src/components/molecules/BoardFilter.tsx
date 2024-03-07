@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 
-const BoardFilter = () => {
+interface Props {
+  onFilterChange: React.Dispatch<React.SetStateAction<string>>;
+}
+const BoardFilter: React.FC<Props> = ({ onFilterChange }) => {
   const [selectedFilter, setSelectedFilter] = useState('최신순');
 
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedFilter(event.target.value);
+    onFilterChange(event.target.value);
   };
 
   return (

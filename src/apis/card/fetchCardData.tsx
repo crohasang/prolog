@@ -2,7 +2,7 @@ import instance from '../instance';
 import { CardResponse } from '../../store/type/card/card';
 
 // 카드 데이터 조회 API
-export const fetchCardData = async (page: number) => {
+export const fetchCardData = async (page: number, filter: string) => {
   const response = await instance.get<CardResponse>(
     // 더미데이터
     '/data/card/cardDummyData.json'

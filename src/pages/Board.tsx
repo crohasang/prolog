@@ -20,12 +20,15 @@ const Board = () => {
   const navigate = useNavigate();
 
   // 현재 페이지
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
+
+  // 현재 필터
+  const [filter, setFilter] = useState<string>('최신순');
 
   // fetchCardData
   const { data: cardData, isLoading: isCardDataLoading } = useQuery({
-    queryKey: ['fetchCardData', page],
-    queryFn: () => fetchCardData(page),
+    queryKey: ['fetchCardData', page, filter],
+    queryFn: () => fetchCardData(page, filter),
   });
 
   if (isCardDataLoading) {
@@ -59,7 +62,7 @@ const Board = () => {
       </div>
       <div className="px-8">
         <div>
-          <BoardFilterLine />
+          <BoardFilterLine onFilterChange={setFilter} />
         </div>
         <hr className="border-gray-300 dark:border-white" />
         <div className="flex flex-col items-center gap-y-5">
