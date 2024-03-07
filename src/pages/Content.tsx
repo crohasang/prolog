@@ -1,44 +1,53 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { cardData } from '../store/data/card';
-import { CardResult } from '../store/type/card/card';
+// import { useParams } from 'react-router-dom';
+// import { cardData } from '../store/data/card';
+// import { CardResult } from '../store/type/card/card';
 import BoardHeader from '../components/organisms/BoardHeader';
 import DarkModeToggle from '../components/atoms/DarkModeToggle';
 import TopButton from '../components/atoms/TopButton';
 import CommentWrite from '../components/organisms/CommentWrite';
+import CommentSection from '../components/organisms/CommentSection';
+import { useQuery } from '@tanstack/react-query';
+import { fetchDetailData } from '../apis/detail/fetchDetailData';
+import Loading from './Loading';
 
 const Content: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  // fetchDetailData
+  const {
+    data: DetailData,
+    isLoading: isDetailDataLoading,
+    // isError: isDetailDataError,
+  } = useQuery({
+    queryKey: ['fetchDetailData'],
+    queryFn: () => fetchDetailData(),
+  });
 
-  let content: CardResult | undefined;
-
-  if (id !== undefined) {
-    content = cardData.find((card) => card.id === parseInt(id, 10));
+  // 로딩 중일 때
+  if (isDetailDataLoading) {
+    return <Loading />;
   }
 
-  if (!content) {
-    return <div>잘못된 주소!!</div>;
-  }
-
-  return (
-    <div className="min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col px-8 ">
+  return DetailData !== undefined ? (
+    <div className="font-pretendard min-h-screen w-screen bg-white dark:bg-zinc-700 flex flex-col px-8 mb-10">
       <BoardHeader />
-      <div className="font-pretendard text-black sm:mx-32 mt-20">
+      <div className=" text-black sm:mx-32 mt-20">
         <div className="text-2xl font-bold dark:text-white mt-4">
-          {content.title}
+          {DetailData.result.title}
         </div>
         <div className="text-sm text-gray-400 dark:text-white mt-4">
-          {content.author} | {content.time}
+          {DetailData.result.author} | {DetailData.result.time}
         </div>
         <div className="h-auto bg-gray-100 dark:bg-gray-800 dark:text-white rounded-lg mt-10 p-4 ">
-          {content.body}
+          {DetailData?.result.body}
         </div>
       </div>
-      {/* 댓글 표시될 곳 */}
+      <CommentSection CommentResult={DetailData.result.comments} />
       <CommentWrite />
       <DarkModeToggle />
       <TopButton />
     </div>
+  ) : (
+    <div>오류!</div>
   );
 };
 
