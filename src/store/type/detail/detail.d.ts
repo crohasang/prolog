@@ -10,6 +10,7 @@ export type DetailResult = {
   author: string;
   time: string;
   body: string;
+  likes: number;
   comments: CommentResult[];
 };
 

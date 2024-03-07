@@ -28,7 +28,7 @@ const Board = () => {
         </div>
         <hr className="border-gray-300 dark:border-white" />
         <div className="flex flex-col items-center gap-y-5">
-          {cardData &&
+          {cardData && cardData.length > 0 ? (
             cardData.map((value: CardResult, index: number) => (
               <BoardCard
                 key={index}
@@ -39,7 +39,12 @@ const Board = () => {
                 likes={value.likes}
                 onClick={() => navigate(`/content/${value.id}`)}
               />
-            ))}
+            ))
+          ) : (
+            <div className="flex justify-center items-center h-full">
+              <div>아직 댓글이 없습니다.</div>
+            </div>
+          )}
         </div>
         <div className="mt-4 flex justify-center">
           <button className="mx-1 px-3 py-1 border-r-1 bg-transparent text-zinc-700 dark:text-white">
