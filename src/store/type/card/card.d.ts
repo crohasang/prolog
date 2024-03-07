@@ -14,4 +14,5 @@ export type CardResponse = {
   message: string;
   result: CardResult[];
   messages: string;
+  totalPages: number;
 };
