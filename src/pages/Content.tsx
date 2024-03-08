@@ -7,13 +7,15 @@ import DarkModeToggle from '../components/atoms/DarkModeToggle';
 import TopButton from '../components/atoms/TopButton';
 import CommentWrite from '../components/organisms/CommentWrite';
 import CommentSection from '../components/organisms/CommentSection';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchDetailData } from '../apis/detail/fetchDetailData';
 import Loading from './Loading';
 import BlueBtn from '../components/atoms/BlueBtn';
 import RedBtn from '../components/atoms/RedBtn';
 import WritingEditor from '../components/organisms/WritingEditor';
 import LikesBtn from '../components/molecules/LikesBtn';
+import instance from '../apis/instance';
+import { ContentEditCompletePatchRequestData } from '../store/type/detail/detail';
 
 const Content: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -47,6 +49,27 @@ const Content: React.FC = () => {
     queryFn: () => fetchDetailData(),
   });
 
+  const queryClient = useQueryClient();
+
+  // 수정 완료 후 제출 시 mutation
+  const editCompleteMutation = useMutation({
+    mutationFn: async (newData: ContentEditCompletePatchRequestData) => {
+      const response = await instance.put('', newData);
+      return response.data;
+    },
+    onSuccess: () => {
+      console.log('editCompleteMutation success!');
+      setIsEditing(false);
+      queryClient.invalidateQueries({ queryKey: ['fetchDetailData'] }); // 수정이 성공하면 쿼리를 다시 가져옴
+    },
+  });
+
+  // 수정 후 제출하기 버튼을 눌렀을 때
+  const handleEditCompleteClick = () => {
+    editCompleteMutation.mutate({ editedTitle, editedBody });
+    setIsEditing(false);
+  };
+
   // 로딩 중일 때
   if (isDetailDataLoading) {
     return <Loading />;
@@ -65,7 +88,7 @@ const Content: React.FC = () => {
             />
             <WritingEditor value={editedBody} onChange={handleBodyChange} />
             <div className="whitespace-nowrap float-right mt-10">
-              <BlueBtn title="제출하기" />
+              <BlueBtn title="수정 완료" onClick={handleEditCompleteClick} />
             </div>
           </>
         ) : (
