@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import BlueBtn from '../atoms/BlueBtn';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { CommentSubmitPostRequestData } from '../../store/type/comment/comment';
+import instance from '../../apis/instance';
 
 const CommentWrite: React.FC = () => {
   const [newComment, setNewComment] = useState<string>('');
@@ -8,13 +11,25 @@ const CommentWrite: React.FC = () => {
     setNewComment(e.target.value);
   };
 
+  const queryClient = useQueryClient();
+
+  const commentSubmitMutation = useMutation({
+    mutationFn: async (newComment: CommentSubmitPostRequestData) => {
+      return await instance.post('', newComment);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['fetchDetailData'] }); // 수정이 성공하면 쿼리를 다시 가져옴
+    },
+  });
+
   const handleCommentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newComment.trim() === '') {
       alert('엥 아무것도 입력 안하셨는데요');
+    } else {
+      commentSubmitMutation.mutate({ newComment });
+      setNewComment('');
     }
-    console.log('New comment:', newComment);
-    setNewComment('');
   };
 
   return (
