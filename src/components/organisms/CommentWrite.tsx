@@ -13,15 +13,17 @@ const CommentWrite: React.FC = () => {
 
   const queryClient = useQueryClient();
 
+  // 댓글 작성 후 mutation
   const commentSubmitMutation = useMutation({
-    mutationFn: async (newComment: CommentSubmitPostRequestData) => {
-      return await instance.post('', newComment);
+    mutationFn: async (newData: CommentSubmitPostRequestData) => {
+      return await instance.post('', newData);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['fetchDetailData'] }); // 수정이 성공하면 쿼리를 다시 가져옴
     },
   });
 
+  // 댓글 작성 버튼을 눌렀을 때
   const handleCommentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newComment.trim() === '') {
