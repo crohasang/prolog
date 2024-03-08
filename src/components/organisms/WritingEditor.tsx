@@ -1,7 +1,9 @@
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import ReactQuill, { Quill } from 'react-quill';
 import { ImageDrop } from 'quill-image-drop-module';
 import 'react-quill/dist/quill.snow.css';
+import { useMutation } from '@tanstack/react-query';
+import instance from '../../apis/instance';
 
 interface Props {
   value: string;
@@ -52,47 +54,69 @@ const WritingEditor: React.FC<Props> = ({ value, onChange }) => {
     []
   );
 
-  const quillRef = useRef(null);
+  // const quillRef = useRef(null);
+  // const quillRef = useRef<InstanceType<typeof Quill> | null>(null);
+  const quillRef = useRef<ReactQuill | null>(null);
 
-  // useEffect(() => {
-  //   const quill = quillRef.current;
-  //   console.log(quill);
+  // base64 이미지를 전송해서 response로 url을 받는 mutation
+  const imageMutation = useMutation({
+    mutationFn: async (newData: FormData) => {
+      return await instance.post('', newData);
+    },
+    onSuccess: (res) => {
+      return res.data;
+    },
+  });
 
-  // const handleImage = () => {
-  //   const input = document.createElement('input');
-  //   input.setAttribute('type', 'file');
-  //   input.setAttribute('accept', 'image/*');
-  //   input.click();
+  useEffect(() => {
+    if (quillRef.current) {
+      const quill = quillRef.current.getEditor();
+      console.log(quill);
 
-  //   input.onchange = async () => {
-  //     const file = input.files[0];
-  //     const range = quill.getSelection(true);
+      const handleImageUpload = async (file: File) => {
+        const range = quill.getSelection(true);
 
-  //     // 대체 이미지 넣기
-  //     // quill.insertEmbed(range.index, "image", `/images/loading.gif`);
+        // 로딩 이미지 삽입
+        quill.insertEmbed(
+          range.index,
+          'image',
+          'src/assets/images/loading.png'
+        );
 
-  //     try {
-  //       const formData = new FormData();
-  //       formData.append('file', file);
-  //       // 서버에 formData POST하고 response로 img url 받아오기 -> result에 있음
+        try {
+          const formData = new FormData();
+          formData.append('file', file);
 
-  //       const url = result.data;
-  //       console.log(url);
+          // 서버에 formData POST하고 response로 img url 받아오기 -> result에 있음
+          const url = await imageMutation.mutate(formData);
+          console.log(url);
 
-  //       quill.deleteText(range.index, 1);
-  //       quill.insertEmbed(range.index, "image", url);
-  //       quill.setSelection(range.index + 1);
-  //     } catch (e) {
-  //       quill.deleteText(range.index, 1);
-  //     }
-  //   };
-  // };
+          quill.deleteText(range.index, 1);
+          quill.insertEmbed(range.index, 'image', url);
+          quill.setSelection({ index: range.index + 1, length: 0 });
+        } catch (e) {
+          quill.deleteText(range.index, 1);
+        }
+      };
 
-  // if (quill) {
-  //   const toolbar = quill.getModule("toolbar");
-  //   toolbar.addHandler("image", handleImage);
-  //   };
-  // }, []);
+      const handleImage = () => {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+        input.click();
+
+        input.onchange = () => {
+          if (input.files !== null && quill !== null) {
+            const file = input.files[0];
+            handleImageUpload(file);
+          }
+        };
+      };
+
+      const toolbar = quill.getModule('toolbar');
+      toolbar.addHandler('image', handleImage);
+    }
+  }, []);
 
   return (
     <ReactQuill

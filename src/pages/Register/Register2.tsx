@@ -35,7 +35,7 @@ const Register2 = () => {
         // 입력한 닉네임 초기화
         setNickname('');
       } else {
-        // 가입 버튼 Disable
+        // 가입 버튼 Disable -> able
         setIsRegisterDisable(false);
       }
     },

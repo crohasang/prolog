@@ -4,6 +4,8 @@ import TopButton from '../components/atoms/TopButton';
 import WritingEditor from '../components/organisms/WritingEditor';
 
 import BlueBtn from '../components/atoms/BlueBtn';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import instance from '../apis/instance';
 // import { useMutation } from '@tanstack/react-query';
 
 const Write = () => {
@@ -21,11 +23,17 @@ const Write = () => {
     setNewWriting(e);
   };
 
-  // const mutation = useMutation((data: FormData) => api.post('/your-endpoint', data, {
-  //   headers: {
-  //     'Content-Type': 'multipart/form-data'
-  //   }
-  // }));
+  const queryClient = useQueryClient();
+
+  // 본문 작성 후 mutation
+  const contentSubmitMutation = useMutation({
+    mutationFn: async (newData: FormData) => {
+      return await instance.post('', newData);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['fetchDetailData'] }); // 수정이 성공하면 쿼리를 다시 가져옴
+    },
+  });
 
   // 제출
   const handleWritingSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,12 +51,12 @@ const Write = () => {
       alert('본문에 아무것도 안 적으셨네요??');
     } else {
       // FormData 생성
-      // const formData = new FormData();
-      // formData.append('title', newTitle);
-      // formData.append('writing', newWriting);
+      const formData = new FormData();
+      formData.append('title', newTitle);
+      formData.append('writing', newWriting);
 
-      // // 서버에 POST 요청 보내기
-      // mutation.mutate(formData);
+      // 서버에 POST 요청 보내기
+      contentSubmitMutation.mutate(formData);
 
       console.log('New comment:', newWriting);
     }
