@@ -16,11 +16,22 @@ import WritingEditor from '../components/organisms/WritingEditor';
 import LikesBtn from '../components/molecules/LikesBtn';
 import instance from '../apis/instance';
 import { ContentEditCompletePatchRequestData } from '../store/type/detail/detail';
+import { useNavigate } from 'react-router-dom';
 
 const Content: React.FC = () => {
+  const navigate = useNavigate();
+
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState('');
   const [editedBody, setEditedBody] = useState('');
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEditedTitle(e.target.value);
+  };
+
+  const handleBodyChange = (e: string) => {
+    setEditedBody(e);
+  };
 
   // 수정 버튼을 눌렀을 때
   const handleEditClick = () => {
@@ -29,14 +40,6 @@ const Content: React.FC = () => {
       setEditedTitle(DetailData.result.title);
       setEditedBody(DetailData.result.body);
     }
-  };
-
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEditedTitle(e.target.value);
-  };
-
-  const handleBodyChange = (e: string) => {
-    setEditedBody(e);
   };
 
   // fetchDetailData
@@ -68,6 +71,22 @@ const Content: React.FC = () => {
   const handleEditCompleteClick = () => {
     editCompleteMutation.mutate({ editedTitle, editedBody });
     setIsEditing(false);
+  };
+
+  // 본문 삭제 버튼을 눌렀을 때 mutation
+  const contentDeleteMutation = useMutation({
+    mutationFn: async () => {
+      return await instance.delete('');
+    },
+    onSuccess: () => {
+      // board로 이동
+      navigate('/board');
+    },
+  });
+
+  // 본문 삭제 버튼을 눌렀을 때
+  const handleContentDeleteClick = () => {
+    contentDeleteMutation.mutate();
   };
 
   // 로딩 중일 때
@@ -106,7 +125,7 @@ const Content: React.FC = () => {
               <LikesBtn likes={DetailData?.result.likes} isContent={true} />
               <div className="flex gap-x-2 whitespace-nowrap">
                 <BlueBtn title="수정" onClick={handleEditClick} />
-                <RedBtn title="삭제" />
+                <RedBtn title="삭제" onClick={handleContentDeleteClick} />
               </div>
             </div>
           </>
