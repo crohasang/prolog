@@ -11,6 +11,8 @@ import { CardResult } from '../store/type/card/card';
 import BoardCard from '../components/organisms/BoardCard';
 import BlueBtn from '../components/atoms/BlueBtn';
 import RedBtn from '../components/atoms/RedBtn';
+import { useMutation } from '@tanstack/react-query';
+import instance from '../apis/instance';
 
 const My = () => {
   const navigate = useNavigate();
@@ -32,6 +34,22 @@ const My = () => {
 
   const handleNicknameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(event.target.value);
+  };
+
+  // 회원탈퇴 버튼을 눌렀을 때 mutation
+  const quitDeleteMutation = useMutation({
+    mutationFn: async () => {
+      return await instance.delete('');
+    },
+    onSuccess: () => {
+      // 로그인 화면으로 이동
+      navigate('/');
+    },
+  });
+
+  // 본문 삭제 버튼을 눌렀을 때
+  const handleQuitClick = () => {
+    quitDeleteMutation.mutate();
   };
 
   return (
@@ -113,7 +131,7 @@ const My = () => {
       </div>
       <div className="font-pretendard sm:mx-32 mt-20 mb-20 px-8">
         <div className="float-right">
-          <RedBtn title="탈퇴하기" />
+          <RedBtn title="탈퇴하기" onClick={handleQuitClick} />
         </div>
       </div>
 
