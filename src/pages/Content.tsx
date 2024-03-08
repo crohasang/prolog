@@ -7,18 +7,31 @@ import DarkModeToggle from '../components/atoms/DarkModeToggle';
 import TopButton from '../components/atoms/TopButton';
 import CommentWrite from '../components/organisms/CommentWrite';
 import CommentSection from '../components/organisms/CommentSection';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchDetailData } from '../apis/detail/fetchDetailData';
 import Loading from './Loading';
 import BlueBtn from '../components/atoms/BlueBtn';
 import RedBtn from '../components/atoms/RedBtn';
 import WritingEditor from '../components/organisms/WritingEditor';
 import LikesBtn from '../components/molecules/LikesBtn';
+import instance from '../apis/instance';
+import { ContentEditCompletePatchRequestData } from '../store/type/detail/detail';
+import { useNavigate } from 'react-router-dom';
 
 const Content: React.FC = () => {
+  const navigate = useNavigate();
+
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState('');
   const [editedBody, setEditedBody] = useState('');
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEditedTitle(e.target.value);
+  };
+
+  const handleBodyChange = (e: string) => {
+    setEditedBody(e);
+  };
 
   // 수정 버튼을 눌렀을 때
   const handleEditClick = () => {
@@ -27,14 +40,6 @@ const Content: React.FC = () => {
       setEditedTitle(DetailData.result.title);
       setEditedBody(DetailData.result.body);
     }
-  };
-
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEditedTitle(e.target.value);
-  };
-
-  const handleBodyChange = (e: string) => {
-    setEditedBody(e);
   };
 
   // fetchDetailData
@@ -46,6 +51,43 @@ const Content: React.FC = () => {
     queryKey: ['fetchDetailData'],
     queryFn: () => fetchDetailData(),
   });
+
+  const queryClient = useQueryClient();
+
+  // 수정 완료 후 제출 시 mutation
+  const editCompleteMutation = useMutation({
+    mutationFn: async (newData: ContentEditCompletePatchRequestData) => {
+      const response = await instance.put('', newData);
+      return response.data;
+    },
+    onSuccess: () => {
+      console.log('editCompleteMutation success!');
+      setIsEditing(false);
+      queryClient.invalidateQueries({ queryKey: ['fetchDetailData'] }); // 수정이 성공하면 쿼리를 다시 가져옴
+    },
+  });
+
+  // 수정 후 제출하기 버튼을 눌렀을 때
+  const handleEditCompleteClick = () => {
+    editCompleteMutation.mutate({ editedTitle, editedBody });
+    setIsEditing(false);
+  };
+
+  // 본문 삭제 버튼을 눌렀을 때 mutation
+  const contentDeleteMutation = useMutation({
+    mutationFn: async () => {
+      return await instance.delete('');
+    },
+    onSuccess: () => {
+      // board로 이동
+      navigate('/board');
+    },
+  });
+
+  // 본문 삭제 버튼을 눌렀을 때
+  const handleContentDeleteClick = () => {
+    contentDeleteMutation.mutate();
+  };
 
   // 로딩 중일 때
   if (isDetailDataLoading) {
@@ -65,7 +107,7 @@ const Content: React.FC = () => {
             />
             <WritingEditor value={editedBody} onChange={handleBodyChange} />
             <div className="whitespace-nowrap float-right mt-10">
-              <BlueBtn title="제출하기" />
+              <BlueBtn title="수정 완료" onClick={handleEditCompleteClick} />
             </div>
           </>
         ) : (
@@ -83,7 +125,7 @@ const Content: React.FC = () => {
               <LikesBtn likes={DetailData?.result.likes} isContent={true} />
               <div className="flex gap-x-2 whitespace-nowrap">
                 <BlueBtn title="수정" onClick={handleEditClick} />
-                <RedBtn title="삭제" />
+                <RedBtn title="삭제" onClick={handleContentDeleteClick} />
               </div>
             </div>
           </>

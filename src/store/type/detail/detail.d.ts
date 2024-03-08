@@ -21,3 +21,8 @@ export type DetailResponse = {
   result: DetailResult;
   messages: string;
 };
+
+export type ContentEditCompletePatchRequestData = {
+  editedTitle: string;
+  editedBody: string;
+};

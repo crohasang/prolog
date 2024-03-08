@@ -1,4 +1,4 @@
-export type CardResult = {
+export type SearchResult = {
   id: number;
   title: string;
   body: string;
@@ -8,7 +8,7 @@ export type CardResult = {
   likes: number;
 };
 
-export type CardResponse = {
+export type SearchResponse = {
   code: number;
   status: number;
   message: string;
